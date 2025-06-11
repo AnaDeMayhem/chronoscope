@@ -1,3 +1,6 @@
+// Copyright (c) 2025 AnaDeMayhem
+// Licensed under the MIT License
+
 document.addEventListener('DOMContentLoaded', function() {
     AOS.init();
 

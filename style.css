@@ -1,0 +1,284 @@
+/* Minimalist Glass UI Design */
+
+/* Color Palette */
+:root {
+    --bg-color: #fff;
+    --text-color-main: #000;
+    --text-color-secondary: #666;
+    --button-color: #000;
+    --highlight-color: #f0f0f0;
+    --border-color: #ccc;
+}
+
+/* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color-main);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header a {
+    text-decoration: none;
+}
+
+.logo {
+    font-family: 'Dosis', sans-serif;
+    font-size: 3.5rem;
+    color: var(--text-color-main);
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.25rem;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--text-color-main);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-color-secondary);
+    margin: 0;
+}
+
+/* Input Section Styles */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    text-align: center;
+    background-color: var(--highlight-color);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.input-section label {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-color-main);
+}
+
+.input-section input[type="date"],
+.input-section input[type="time"] {
+    width: 200px;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.input-section button {
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
+}
+
+.input-section button:hover {
+    background-color: var(--text-color-main);
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.4);
+}
+
+/* Results Section Styles */
+.results-section {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.result-card {
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+/* Extras Section Styles */
+.extras-section {
+    margin-bottom: 2rem;
+}
+
+/* Download PDF Button Styles */
+.download-pdf-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--button-color);
+    color: white;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
+}
+
+.download-pdf-button:hover {
+    filter: brightness(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .results-section {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer Responsive Styles */
+    footer nav ul {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+    }
+
+    footer nav ul li {
+        padding: 0.5rem 0; /* Add vertical padding, remove horizontal */
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--bg-color);
+    color: var(--text-color-main);
+    padding: 1rem;
+    text-align: center;
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+footer nav ul li {
+    padding: 0 0.5rem; /* Reduce horizontal padding slightly */
+}
+
+footer nav ul li a {
+    color: var(--text-color-main);
+    text-decoration: none;
+}
+
+/* Larger screens */
+@media (min-width: 992px) {
+    #historical-facts {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+
+body.dark-mode .logo {
+    color: #fff; /* Ensure logo is white in dark mode */
+}
+
+body.dark-mode .input-section button {
+    color: #000; /* Ensure button text is black in dark mode */
+    background-color: #fff; /* Ensure button background is white in dark mode */
+}
+
+body.dark-mode .download-pdf-button {
+    color: #000; /* Ensure download button text is black in dark mode */
+    background-color: #fff; /* Ensure download button background is white in dark mode */
+}
+
+body.dark-mode footer {
+    background-color: #000; /* Ensure footer is black in dark mode */
+    color: #fff; /* Ensure footer text is white in dark mode */
+}
+
+body.dark-mode footer {
+    background-color: #000; /* Ensure footer is black in dark mode */
+}
+
+body.dark-mode footer nav ul li a {
+    color: #fff; /* Ensure footer links are white in dark mode */
+}
+
+body.dark-mode .input-section {
+    background-color: #333; /* Darken the input section */
+    color: #fff;
+}
+
+body.dark-mode .input-section label {
+    color: #fff; /* Ensure labels are visible in dark mode */
+}
